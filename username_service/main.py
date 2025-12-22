@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from logic import normalize_username
+from logic import normalize_username, is_valid_username
 
 app = FastAPI()
 
@@ -9,3 +9,9 @@ def normalize(username: str):
     if result is None:
         raise HTTPException(status_code=400, detail= "Invalid Username")
     return {"Normalized Username: ": result}
+
+@app.get("/validate-username")
+def validate(username: str):
+    return{
+        "is_valid": is_valid_username(username)
+    }
