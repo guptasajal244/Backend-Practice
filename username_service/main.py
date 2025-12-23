@@ -10,7 +10,7 @@ def normalize(username: str):
         raise HTTPException(status_code=400, detail= "Invalid Username")
     return {"Normalized Username: ": result}
 
-@app.get("/validating-username")
+@app.get("/validate-username")
 def validate(username: str):
     return{
         "is_valid": is_valid_username(username)
