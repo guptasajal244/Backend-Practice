@@ -11,7 +11,7 @@ def normalize(username: str):
     return {"Normalized Username: ": result}
 
 @app.get("/validate-username")
-def validate(username: str):
+def validate_username(username: str):
     return{
         "is_valid": is_valid_username(username)
     }
